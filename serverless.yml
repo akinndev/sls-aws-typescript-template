@@ -1,0 +1,24 @@
+service: kde-httpApi-web-service
+frameworkVersion: '3'
+useDotenv: true
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  versionFunctions: false
+  stage: ${opt:stage, 'dev'}
+  region: ap-northeast-1
+  profile: kde-amplify-admin-dev
+
+functions:
+  hello:
+    handler: app/handler.hello
+    events:
+      - httpApi:
+          path: /
+          method: get
+
+plugins:
+  - serverless-plugin-typescript
+  - serverless-offline
+  - serverless-dotenv-plugin

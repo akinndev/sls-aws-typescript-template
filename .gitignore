@@ -1,0 +1,10 @@
+# package directories
+node_modules
+jspm_packages
+config/stg.yml
+config/prod.yml
+coverage
+
+# Serverless directories
+.serverless
+.build
